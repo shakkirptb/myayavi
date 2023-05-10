@@ -1,0 +1,43 @@
+#myv-assistant-icon {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(51, 51, 51, 150);
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  z-index: 99999;
+  overflow: hidden;
+  box-shadow: rgb(106, 125, 142) 2px 2px 4px;
+}
+
+#myv-assistant-icon svg {
+  position: relative;
+  left: 3px;
+  top: 1px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+#myv-body {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#myv-popup-container{
+  position: fixed;
+  z-index: 99999;
+  padding: 0px 3px 0px 3px;
+  margin: 0;
+  border-radius: 5px;
+  background-color: aliceblue;
+  box-shadow: 3px 3px 5px #6a7d8e;
+}
+
+.myv-hide {
+  display: none;
+}

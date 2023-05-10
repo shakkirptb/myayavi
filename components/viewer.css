@@ -1,0 +1,88 @@
+#myv-viewer {
+  width: 95vw;
+  height: 95vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #00000055;
+  border-radius: 10px;
+  z-index: 99998;
+  font-family: system-ui;
+}
+#myv-table {
+  width: 97%;
+  min-height: 100px;
+  max-height: 95%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99998;
+  background: #f0f5f8;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+button#myv-close {
+  z-index: 99999;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #11caff;
+}
+
+.myv-col {
+  padding: 5px;
+  display:inline-block;
+  overflow-y: hidden;
+}
+
+.myv-row {
+  border-bottom: 1px solid #8080807d;
+  padding: 5px;
+  width:90%;
+  display: flex;
+  align-items: center;
+  max-height: 90vh;
+}
+.myv-row .myv-col:nth-child(1){
+  width:15%;
+  text-align: center;
+}
+.myv-row .myv-col:nth-child(2){
+  width:25%;
+}
+.myv-row .myv-col:nth-child(3){
+  width:60%;
+  font-family: monospace;
+  font-size: 14px;
+  overflow-y: auto;
+}
+.myv-col *{
+  width: 99%;
+  max-width: 99%;
+}
+.myv-col div{
+  min-height: auto;
+  max-height: 70px;
+  overflow-y: auto;
+  word-wrap: break-word;
+}
+.myv-col textarea {
+  overflow: auto;
+  border: none;
+}
+.myv-col-json {
+  overflow-y: auto;
+  border: none;
+  min-height: 70px;
+}
+.myv-green {
+  color: #579f57;
+}
+.myv-red {
+  color: #e25757;
+}

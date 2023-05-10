@@ -1,0 +1,44 @@
+{
+  "name": "Myayavi",
+  "description": "Myayavi - the website genie, Automate and shortcut repetitive tasks on any website with Myayavi",
+  "manifest_version": 3,
+  "version": "1.0",
+  "permissions": ["tabs"],
+  "background": "background.js",
+  "icons": {
+    "16": "images/cool-dog-big.png",
+    "32": "images/cool-dog-big.png",
+    "48": "images/cool-dog-big.png"
+  },
+  "action": {
+    "default_title": "Myayavi",
+    "default_popup": "popup/popup.html",
+    "icons": {
+      "16": "images/cool-dog-big.png",
+      "32": "images/cool-dog-big.png",
+      "48": "images/cool-dog-big.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "config.js",
+        "images/cool-dog.js",
+        "content-scripts/menu.js",
+        "registries/patterns.js",
+        "registries/tags.js",
+        "components/common.js",
+        "registries/actions.js",
+        "components/popup.js",
+        "content-scripts/assistant.js",
+        "components/viewer.js"
+      ],
+      "css": [
+        "components/popup.css",
+        "components/viewer.css",
+        "content-scripts/assistant.css"
+      ]
+    }
+  ]
+}
