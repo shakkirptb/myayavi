@@ -53,6 +53,22 @@ window.myayavi.registerActions([
     show: ["app:aem"],
   },
   {
+    id: "edit-aem",
+    label: "edit item",
+    action: (tab, url, tags, resourcePath, domain) => {
+      const templateUrl = getAEMUrTemplate(
+        url,
+        tags,
+        "/content",
+        resourcePath,
+        domain
+      );
+      return openNewTab(templateUrl.replace("__EXPLORER__", "/editor.html"));
+    },
+    hide: ["aem:edit"],
+    show: ["app:aem"],
+  },
+  {
     id: "show-in-aem",
     label: "Show in AEM",
     action: (tab, url, tags) => {
@@ -84,13 +100,25 @@ function isPopup(tab) {
   return tab !== window;
 }
 
+function chooseAuthorDomain(tags, specialTags) {
+  const env =
+    tags.find((tag) => tag.startsWith("env:"))?.replace("env:", "") ?? "local";
+  const key = Object.keys(window.myayavi.registry.domains).find((key) =>
+    [env, ...(specialTags ?? ["aem"]), "author"].every((item) =>
+      key.includes(item)
+    )
+  );
+  return window.myayavi.registry.domains[key];
+}
 // AEM
-function getAEMUrTemplate(url, tags, defaultPath) {
+function getAEMUrTemplate(url, tags, defaultPath, suffix, domain) {
   const fallback = defaultPath ?? "/content";
-  const contentPath = getSuffixFromURL(url) ?? fallback;
-  const origin = tags.includes("app:aem")
-    ? new URL(url).origin
-    : myayavi.registry.domains["prod:headless:author"]; // TODO: select domain  from "app:headless" group
+  const contentPath = suffix ?? getSuffixFromURL(url) ?? fallback;
+  const origin =
+    domain ??
+    (tags.includes("app:aem")
+      ? new URL(url).origin
+      : myayavi.registry.domains["local:aem:author"]); // TODO: select domain  from "app:headless" group
   return `${origin}__EXPLORER__${
     contentPath.startsWith(fallback) ? contentPath : fallback
   }`;

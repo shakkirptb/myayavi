@@ -41,3 +41,8 @@
 .myv-hide {
   display: none;
 }
+
+
+.myd-container button {
+  position: absolute;
+}

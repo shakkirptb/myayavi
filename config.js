@@ -71,7 +71,7 @@ window.myayavi = {
           if (key?.includes(":")) {
             return {
               test: (url) => RegExp(regEx).test(url),
-              tags: [key, ...(generateCombinations(key) ?? [])],
+              tags: generateCombinations(key) ?? [],
             };
           }
         } catch (e) {

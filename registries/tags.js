@@ -5,14 +5,14 @@ window.myayavi.registerTags([
   },
   {
     test: (url) => RegExp("^http://localhost:4502").test(url),
-    tags: ["app:aem", "aem:author", "role:dev"],
+    tags: ["app:aem", "aem:author"],
   },
   {
     test: (url) => RegExp("^http://localhost:4503").test(url),
-    tags: ["app:aem", "aem:publisher", "role:dev"],
+    tags: ["app:aem", "aem:publisher"],
   },
   {
-    test: (url) => myayavi.registry.patterns["path:html"].test(url),
+    test: (url) => myayavi.registry.patterns["path:onehub:html"].test(url),
     tags: ["app:aem"],
   },
 ]);
